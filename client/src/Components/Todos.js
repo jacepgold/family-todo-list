@@ -73,15 +73,17 @@ class Todos extends Component {
               />
             </Form>
             <List>
-              {todos.map(t =>
-                <List.Item
-                  key={t.id}
-                  style={t.complete ? styles.complete : {}}
-                  onClick={() => this.updateTodo(t.id)}
-                >
-                  {t.name}
-                </List.Item>
-              )}
+              {
+                todos.map(todo =>
+                  <List.Item
+                    key={todo.id}
+                    style={todo.complete ? styles.complete : {}}
+                    onClick={() => this.updateTodo(todo.id)}
+                  >
+                    {todo.name}
+                  </List.Item>
+                )
+              }
             </List>
           </Segment>
         </Container>

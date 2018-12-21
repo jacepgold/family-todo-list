@@ -1,20 +1,15 @@
-amount = 15
+amount = 30
 
 amount.times do
-  count = 1
   Todo.create(
-    name: "Todo #{count}",
+    name: Faker::DumbAndDumber.quote,
     complete: false  
   )
 
-  count += 1
-  
   Todo.create(
-    name: "Todo #{count}",
+    name: Faker::BackToTheFuture.quote,
     complete: true
   )
-  
-  count += 1
 end
 
 puts "#{amount} Todos Seeded"
