@@ -77,7 +77,7 @@ class Todos extends Component {
                 todos.map(todo =>
                   <List.Item
                     key={todo.id}
-                    style={todo.complete ? styles.complete : {}}
+                    style={todo.complete ? ( styles.li, styles.complete ) : styles.li }
                     onClick={() => this.updateTodo(todo.id)}
                   >
                     {todo.name}
@@ -97,6 +97,10 @@ const styles = {
     textDecoration: 'line-through',
     color: 'grey',
   },
+  li: {
+    paddingTop: '15px',
+    paddingBottom: '15px',
+  }
 }
 
 export default Todos;
