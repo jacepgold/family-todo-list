@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './style/app.scss';
 import { Container, Segment, Header, Form, List } from 'semantic-ui-react';
 
 class App extends Component {
@@ -48,31 +49,39 @@ class App extends Component {
   render() {
     const { todos, name, } = this.state;
     return (
-      <Container>
-        <Segment textAlign='center'>
-          <Header as='h1'>Todo List</Header>
-          <Header as='h4'>Click an item to mark it complete</Header>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Input
-              name="name"
-              required
-              value={name}
-              onChange={this.handleChange}
-            />
-          </Form>
-          <List>
-            {todos.map(t =>
-              <List.Item
-                key={t.id}
-                style={t.complete ? styles.complete : {}}
-                onClick={() => this.updateTodo(t.id)}
-              >
-                {t.name}
-              </List.Item>
-            )}
-          </List>
-        </Segment>
-      </Container>
+      <div id="app">
+        <Container>
+          <Segment inverted textAlign='center'>
+            <Header as='h1'>Gold Family Todo List</Header>
+            <Header as='h4'>Click an item to mark it complete</Header>
+            <p>
+            Todo:
+            Get user, each user has a different color for text and line-through.
+            Admin user can create items
+            </p>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Input
+                name="name"
+                required
+                value={name}
+                placeholder='Add Todo'
+                onChange={this.handleChange}
+              />
+            </Form>
+            <List>
+              {todos.map(t =>
+                <List.Item
+                  key={t.id}
+                  style={t.complete ? styles.complete : {}}
+                  onClick={() => this.updateTodo(t.id)}
+                >
+                  {t.name}
+                </List.Item>
+              )}
+            </List>
+          </Segment>
+        </Container>
+      </div>
     );
   }
 }
