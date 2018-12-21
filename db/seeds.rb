@@ -1,16 +1,20 @@
-# 2.times do
-#   count = 1
-#   Todo.create(
-#     name: "Todo #{count}",
-#     complete: false  
-#   )
+amount = 15
 
-#   count += 1
+amount.times do
+  count = 1
+  Todo.create(
+    name: "Todo #{count}",
+    complete: false  
+  )
+
+  count += 1
   
-#   Todo.create(
-#     name: "Todo #{count}",
-#     complete: true
-#   )
+  Todo.create(
+    name: "Todo #{count}",
+    complete: true
+  )
   
-#   count += 1
-# end
+  count += 1
+end
+
+puts "#{amount} Todos Seeded"
